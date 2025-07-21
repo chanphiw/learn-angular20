@@ -1,8 +1,11 @@
 <div class="flex flex-col items-center justify-center min-h-screen bg-gray-100">
-
-
-  <input type="text" [(ngModel)]="username" class="border border-gray-300 p-2 rounded mb-4"
-    placeholder="Enter your name">
-
-  <h1>Welcome : {{ username }}</h1>
+  @if(userPermission === 'admin'){
+  <h1>สวัสดีผู้ดูแลระบบ</h1>
+  }@else if (userPermission === 'manager') {
+  <h1>สวัสดีผู้จัดการ</h1>
+  }@else if (userPermission === 'customer') {
+  <h1>สวัสดีลูกค้า</h1>
+  }@else {
+  <h1>กรุณาสมัครใช้งานระบบบ</h1>
+  }
 </div>
