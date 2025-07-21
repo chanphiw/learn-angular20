@@ -1,11 +1,9 @@
 <div class="flex flex-col items-center justify-center min-h-screen bg-gray-100">
-  @if(userPermission === 'admin'){
-  <h1>สวัสดีผู้ดูแลระบบ</h1>
-  }@else if (userPermission === 'manager') {
-  <h1>สวัสดีผู้จัดการ</h1>
-  }@else if (userPermission === 'customer') {
-  <h1>สวัสดีลูกค้า</h1>
-  }@else {
-  <h1>กรุณาสมัครใช้งานระบบบ</h1>
+  @for(user of data; track user.id) {
+  <div class="bg-white shadow-md rounded-lg p-6 mb-4 w-full max-w-md">
+    <h2 class="text-xl font-semibold mb-2">User: {{ user.name }}</h2>
+    <p class="text-gray-600">Salary: {{ user.salary }}</p>
+  </div>
   }
+
 </div>
