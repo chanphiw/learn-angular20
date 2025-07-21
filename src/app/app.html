@@ -1,8 +1,9 @@
-<!-- property -->
-<img [src]="imageUrl" [width]="size()" [height]="size()" alt="">
+<div class="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+  <h1 class="text-3xl font-bold  text-purple-500">
+    Hello world!
+  </h1>
+  <!-- event binding -->
+  <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" (click)="showMessage()">Click
+    Me</button>
 
-<!-- expression -->
-<img [src]="imageUrl" [width]="size()" [height]="size()+50" alt="">
-
-<!-- method -->
-<img [src]="imageUrl" [width]="doubleSize()" [height]="doubleSize()" alt="">
+</div>

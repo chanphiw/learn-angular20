@@ -8,11 +8,11 @@ import { Component, signal } from '@angular/core';
   styleUrl: './app.css'
 })
 export class App {
-  imageUrl = "https://cdn.pixabay.com/photo/2016/06/13/22/12/flash-1455285_1280.jpg"
-  size = signal(200);
+ 
+  name = signal('TEE');
 
-  doubleSize() {
-    return this.size() * 2;
+  showMessage() {
+    alert("Hello, Angular!" + this.name());
   }
  
 }
