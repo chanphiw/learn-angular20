@@ -1,5 +1,11 @@
-<app-header title="My App" />
-<br>
-<app-header title="My App2" />
-<br>
-<app-header title="My Program TEE" />
+<app-header title="My App"></app-header>
+<!-- <app-item [id]="data[0].id" [name]="data[0].name" [salary]="data[0].salary"></app-item>
+<app-item [id]="data[1].id" [name]="data[1].name" [salary]="data[1].salary"></app-item>
+<app-item [id]="data[2].id" [name]="data[2].name" [salary]="data[2].salary"></app-item>
+<app-item [id]="data[3].id" [name]="data[3].name" [salary]="data[3].salary"></app-item> -->
+
+@for (emp of data; track emp.id) {
+<app-item [id]="emp.id" [name]="emp.name" [salary]="emp.salary"></app-item>
+}@empty {
+<p class="text-2xl">No data available</p>
+}
