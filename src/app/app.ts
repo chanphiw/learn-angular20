@@ -40,5 +40,9 @@ export class App {
 
   color = 'purple';
   size = 30;
+  myStyle={
+    'background': 'purple',
+    'color': 'white'
+  }
 
 }
