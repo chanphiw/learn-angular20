@@ -1,21 +1,5 @@
-<div class="flex flex-col items-center justify-center min-h-screen">
-  <h1 class="text-4xl font-bold text-yellow-500">User Management</h1>
-  <h2 class="text-2xl text-red-400">Name : {{fname()}}</h2>
-  <h2 class="text-2xl text-purple-400">LastName : {{lname()}}</h2>
-  <h3 class="text-2xl text-green-400">Experience : {{exp()}} years</h3>
-  <h3 class="text-2xl text-blue-400">Skills : {{skills()}} </h3>
-  <ul>
-    @for (item of skills(); track item) {
-    <li class="text-lg text-gray-700">{{item}}</li>
-    }
-  </ul>
-  <hr>
-
-  <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" (click)="change()">Switch
-  </button>
-
-  <button (click)="increment()"
-    class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">+</button>
-  <button (click)="decrement()" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">-</button>
-
-</div>
+<app-header title="My App" />
+<br>
+<app-header title="My App2" />
+<br>
+<app-header title="My Program TEE" />
