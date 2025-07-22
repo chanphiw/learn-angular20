@@ -1,53 +1,49 @@
 import { Component } from '@angular/core';
-import { NgClass, NgStyle, UpperCasePipe, CurrencyPipe, DatePipe  } from '@angular/common';
+import { signal } from '@angular/core';
+
 
 
 @Component({
   selector: 'app-root',
-  imports: [NgClass, NgStyle, UpperCasePipe, CurrencyPipe, DatePipe],
+  imports: [],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
 export class App {
-  data = [
-    { id: 1, name: 'John', salary: 50000, active: "06/21/2025" },
-    { id: 2, name: 'Jane', salary: 60000, active: "06/18/2025" },
-    { id: 3, name: 'Bob', salary: 55000, active: "06/01/2025" },
-    { id: 4, name: 'Alice', salary: 70000, active: "06/12/2025" },
-    { id: 5, name: 'Charlie', salary: 65000, active: "06/15/2025" },
-    { id: 6, name: 'David', salary: 72000, active: "06/29/2025" },
-    { id: 7, name: 'Eve', salary: 48000, active: "06/22/2025" },
-  ];
+  fname = signal<string>('Pathompong');
+  lname = signal<string>('Chanphiw');
+  exp = signal<number>(15);
+  skills = signal<string[]>(['Angular', 'React', 'Vue']);
 
-  clearData() {
-    this.data = [];
+
+change(){
+  this.fname.set('John');
+  this.lname.set('Doe');
+  this.exp.set(10);
+  this.skills.set(['JavaScript', 'TypeScript', 'Python']);
+
+}
+
+increment(){
+  // add max value = 35years
+  const value = this.exp();
+  if (value >= 35) {
+    console.warn('Maximum experience limit reached');
+    return;
   }
-  addData() {
-    this.data.push({
-      id: this.data.length + 1,
-      name: `New User ${this.data.length + 1}`,
-      salary: Math.floor(Math.random() * 100000),
-      active: new Date().toLocaleDateString()
-    });
-  }
+  this.exp.update(value => value + 1);
 
-  isActive = false;
-
-  changeMode() {
-    this.isActive = !this.isActive;
-    document.body.classList.toggle('dark', this.isActive);
-    document.body.classList.toggle('light', !this.isActive);
+  // when max value alerts, you are retired
+  if (value + 1 === 35) {
+    alert('You are retired now');
   }
 
-  color = 'purple';
-  size = 30;
-  myStyle={
-    'background': 'purple',
-    'color': 'white'
+}
+
+decrement(){
+  // add min value = 0
+  if (this.exp() > 0) {
+    this.exp.update(value => value - 1);
   }
-
-  // pipe
-
-
-
+}
 }
