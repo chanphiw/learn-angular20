@@ -6,9 +6,10 @@
   @for(user of data; track user.id) {
   <div class="bg-white shadow-md rounded-lg p-6 mb-4 w-full max-w-md">
     <h2 class="text-xl font-semibold mb-2">User:
-      <span class="text-pink-600">{{ user.name }}</span>
+      <span class="text-pink-600">{{ user.name | uppercase }}</span>
     </h2>
-    <p class="text-gray-600">Salary: {{ user.salary }}</p>
+    <p class="text-gray-600">Salary: {{ user.salary | currency: "฿" }}</p>
+    <p class="text-green-600">Last Active: {{ user.active | date: 'fullDate' | uppercase }}</p>
   </div>
   }@empty {
   <p [ngStyle]="{'color': color, 'font-size.px': size}" class="text-gray-600">No data available.</p>

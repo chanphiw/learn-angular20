@@ -1,22 +1,22 @@
 import { Component } from '@angular/core';
-import { NgClass, NgStyle  } from '@angular/common';
+import { NgClass, NgStyle, UpperCasePipe, CurrencyPipe, DatePipe  } from '@angular/common';
 
 
 @Component({
   selector: 'app-root',
-  imports: [NgClass, NgStyle],
+  imports: [NgClass, NgStyle, UpperCasePipe, CurrencyPipe, DatePipe],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
 export class App {
   data = [
-    { id: 1, name: 'John', salary: 50000 },
-    { id: 2, name: 'Jane', salary: 60000 },
-    { id: 3, name: 'Bob', salary: 55000 },
-    { id: 4, name: 'Alice', salary: 70000 },
-    { id: 5, name: 'Charlie', salary: 65000 },
-    { id: 6, name: 'David', salary: 72000 },
-    { id: 7, name: 'Eve', salary: 48000 },
+    { id: 1, name: 'John', salary: 50000, active: "06/21/2025" },
+    { id: 2, name: 'Jane', salary: 60000, active: "06/18/2025" },
+    { id: 3, name: 'Bob', salary: 55000, active: "06/01/2025" },
+    { id: 4, name: 'Alice', salary: 70000, active: "06/12/2025" },
+    { id: 5, name: 'Charlie', salary: 65000, active: "06/15/2025" },
+    { id: 6, name: 'David', salary: 72000, active: "06/29/2025" },
+    { id: 7, name: 'Eve', salary: 48000, active: "06/22/2025" },
   ];
 
   clearData() {
@@ -27,6 +27,7 @@ export class App {
       id: this.data.length + 1,
       name: `New User ${this.data.length + 1}`,
       salary: Math.floor(Math.random() * 100000),
+      active: new Date().toLocaleDateString()
     });
   }
 
@@ -44,5 +45,9 @@ export class App {
     'background': 'purple',
     'color': 'white'
   }
+
+  // pipe
+
+
 
 }
