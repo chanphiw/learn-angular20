@@ -1,9 +1,24 @@
 <div class="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+  <h1 class="text-3xl font-bold  text-purple-500">
+    User Data Management
+  </h1>
+
   @for(user of data; track user.id) {
   <div class="bg-white shadow-md rounded-lg p-6 mb-4 w-full max-w-md">
-    <h2 class="text-xl font-semibold mb-2">User: {{ user.name }}</h2>
+    <h2 class="text-xl font-semibold mb-2">User:
+      <span class="text-pink-600">{{ user.name }}</span>
+    </h2>
     <p class="text-gray-600">Salary: {{ user.salary }}</p>
   </div>
+  }@empty {
+  <p class="text-gray-600">No data available.</p>
   }
 
+  <button (click)="clearData()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+    Clear Data
+  </button>
+
+  <button (click)="addData()" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mt-3">
+    Add User
+  </button>
 </div>
