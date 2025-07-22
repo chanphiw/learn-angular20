@@ -21,5 +21,12 @@ export class App {
     {id:105, name: 'NEW2', salary: 99000},
 
   ]
+
+  removeDataById(id: number) {
+    this.data = this.data.filter((emp) => emp.id !== id);
+    console.log(`Item with ID ${id} removed.`);
+    alert(`Item with ID ${id} has been removed.`); 
+
+  }
   
 }
