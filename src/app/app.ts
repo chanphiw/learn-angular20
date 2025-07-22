@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  imports: [],
+  imports: [NgClass],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
@@ -24,5 +24,13 @@ clearData() {
 }
 addData() {
   this.data.push({ id: this.data.length + 1, name: `New User ${this.data.length + 1}`, salary: Math.floor(Math.random() * 100000) });
+}
+
+isActive = false;
+
+changeMode() {
+  this.isActive = !this.isActive;
+  document.body.classList.toggle('dark', this.isActive);
+  document.body.classList.toggle('light', !this.isActive);
 }
 }

@@ -1,5 +1,5 @@
-<div class="flex flex-col items-center justify-center min-h-screen bg-gray-100">
-  <h1 class="text-3xl font-bold  text-purple-500">
+<div [ngClass]="isActive ? 'dark' : 'light'" class="flex flex-col items-center justify-center min-h-screen">
+  <h1 class="text-3xl font-bold">
     User Data Management
   </h1>
 
@@ -20,5 +20,9 @@
 
   <button (click)="addData()" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mt-3">
     Add User
+  </button>
+
+  <button (click)="changeMode()" class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded mt-3">
+    {{ isActive ? 'Switch to Light Mode' : 'Switch to Dark Mode' }}
   </button>
 </div>

@@ -1,0 +1,12 @@
+.dark{
+  background-color: #1a202c;
+  color: #cbd5e0;
+  transition: all 0.3s ease-in-out;
+}
+
+.light{
+  background-color: #f7fafc;
+  color: #2d3748;
+  transition: all 0.3s ease-in-out;
+
+}
