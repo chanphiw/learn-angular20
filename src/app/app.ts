@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { Header } from "./header/header";
 import { Item } from './item/item';
+import { Addform } from './addform/addform';
 
 
-interface Employee {
+export interface Employee {
   id: number;
   name: string;
   salary: number;
@@ -11,7 +12,7 @@ interface Employee {
 
 @Component({
   selector: 'app-root',
-  imports: [Header, Item],
+  imports: [Header, Item, Addform],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
@@ -21,10 +22,7 @@ export class App {
 
     {id:101, name: 'Kong', salary: 50000},
     {id:102, name: 'TEE', salary: 90000},
-    {id:103, name: 'ICON', salary: 40000},
-    {id:104, name: 'NEW', salary: 30000},
-    {id:105, name: 'หนุ่ม', salary: 60000},
-    {id:106, name: 'สมชาย', salary: 70000},
+    
 
   ]
 
@@ -32,6 +30,14 @@ export class App {
     this.data = this.data.filter((emp) => emp.id !== id);
      
 
+  }
+
+  // รับข้อมูลจาก Addform จากลูก component
+  // และเพิ่มเข้าไปในต่อท้าย data array
+  // โดยใช้ push() method
+  insertData(emp: Employee) {
+    this.data.unshift(emp);
+    console.log('New Employee Added:', emp);
   }
   
 }

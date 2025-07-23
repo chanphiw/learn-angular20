@@ -1,0 +1,19 @@
+<h2 class="text-2xl text-purple-500">Form Add New Employee</h2>
+<form (ngSubmit)="addNewEmployee()" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+
+  <label class="block text-gray-700 text-sm font-bold mb-2" for="fullname">
+    Full Name
+    <input class="border-2" type="text" id="fullname" name="fullname" [(ngModel)]="fullname" required>
+  </label>
+  <label class="block text-gray-700 text-sm font-bold mb-2" for="salary">
+    Salary
+    <input class="border-2" type="number" id="salary" name="salary" min=15000 [(ngModel)]="salary" step="5000" required>
+  </label>
+
+  <h1>{{fullname()}}, {{salary()}}</h1>
+
+  <br>
+  <button class="bg-purple-500 text-white font-bold py-2 px-2 rounded" type="submit" [disabled]="!fullname()">
+    Add Employee
+  </button>
+</form>
