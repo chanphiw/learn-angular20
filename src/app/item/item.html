@@ -1,6 +1,6 @@
 <h2>ID : {{id()}}</h2>
 <h2>Name : {{name()}}</h2>
-<h2>Salary : {{salary()}}</h2>
+<h2>Salary : {{salary() | currency : '฿'}} THB</h2>
 
 <button (click)="deleteItem()" class="bg-red-500 px-4 py-2 rounded-3xl">Delete</button>
 <hr>
